@@ -33,9 +33,11 @@ END{
     avg_goodput = sum_goodput/n
     fi = quad_sum_goodput/(n*sum_quad_goodput)
     avg_sinr = sum_sinr/m
-    printf("Total goodput (bps): %2.9lf\n",sum_goodput);
-    printf("Average goodput per UE (bps): %2.9lf\n",avg_goodput);
-    printf("Fairness Index (0 to 1): %2.9lf\n",fi);
-    printf ("Packet loss ratios (%) %f\n", plr);
-    printf("Average SINR per UE (dB): %.9f\n", avg_sinr);
+    num_ue = node-1
+    printf("%i,", num_ue);
+    printf("%2.9lf,",sum_goodput);
+    printf("%2.9lf,",avg_goodput);
+    printf("%2.9lf,",fi);
+    printf ("%f,", plr);
+    printf("%.9f\n", avg_sinr);
 }

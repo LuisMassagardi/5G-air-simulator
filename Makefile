@@ -1,6 +1,6 @@
 UNAME_S := $(shell uname -s)
 CXX = g++
-CXXFLAGS = -c --std=c++11 -Wall -Wno-unused-variable -Wno-unused-function -fPIC
+CXXFLAGS = -c --std=c++20 -Wall -Wno-unused-variable -Wno-unused-function -fPIC
 LD	= g++
 RM	= rm
 

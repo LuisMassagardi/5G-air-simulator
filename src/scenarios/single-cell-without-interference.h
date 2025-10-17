@@ -70,10 +70,10 @@ static void SingleCellWithoutInterference (int argc, char *argv[])
     }
 
   // define simulation times
-  double duration = 25;
-  double flow_duration = 20;
+  double duration = 10;
+  double flow_duration = 8;
 
-  double bandwidth = 5;
+  double bandwidth = 1.4;
 
   // CREATE COMPONENT MANAGER
   Simulator *simulator = Simulator::Init();
