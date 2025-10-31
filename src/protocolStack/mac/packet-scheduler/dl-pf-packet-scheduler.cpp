@@ -58,10 +58,6 @@ DL_PF_PacketScheduler::ComputeSchedulingMetric (RadioBearer *bearer, double spec
   double metric = (spectralEfficiency * 180000.)
                   /
                   bearer->GetAverageTransmissionRate();
-  // cout << "Average Transmission Rate: " << bearer->GetAverageTransmissionRate()
-  // << "METRICA: " << metric
-  // << " t " << Simulator::Init()->Now()
-  // << endl; 
   return metric;
 }
 

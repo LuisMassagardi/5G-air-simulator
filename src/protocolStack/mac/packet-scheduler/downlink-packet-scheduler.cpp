@@ -182,12 +182,9 @@ void DownlinkPacketScheduler::SelectFlowsToSchedule ()
                     sEff = log2(1+pow(10.,sinrs_cqi.at(0)/10));
                     //delete local_precoding;
                 }
-                else // Se txmode=! 11 (não for MIMO)
+                else 
                 {
                     sEff = amc->GetEfficiencyFromCQI (cqiFeedbacks.at (i));
-                    // cout << "Spectral Efficiency " << sEff
-                    // << " t " << Simulator::Init()->Now()
-                    // << endl;
                 }
                 spectralEfficiency.push_back (sEff);
             }

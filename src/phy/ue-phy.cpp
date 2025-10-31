@@ -42,7 +42,6 @@
 #include "../protocolStack/mac/ue-mac-entity.h"
 #include "../utility/eesm-effective-sinr.h"
 #include "../utility/miesm-effective-sinr.h"
-#include "../utility/export-import-sinr.h"
 #include "gnb-phy.h"
 #include "../utility/ComputePathLoss.h"
 #include "../utility/mimo-codebook.h"
@@ -217,29 +216,11 @@ DEBUG_LOG_END
               }
 
           }
-        else if(nbRxAntennas==1)  //// Se não for MIMO e antena única
+        else if(nbRxAntennas==1) 
         {
           for (auto power : rxSignalValues.at (0))
             {
-              if ((Simulator::Init()->Now())<5)
-              {
-                m_sinrForCQI.push_back (power - noise_interference);
-              
-                int current_rb = m_sinrForCQI.size() - 1;
-                ExportSinr(m_sinrForCQI[current_rb], GetDevice()->GetIDNetworkNode(), current_rb, Simulator::Init()->Now());
-
-                // cout << "Node " << GetDevice()->GetIDNetworkNode() << " RB " << current_rb 
-                // << " INST SINR: " << m_sinrForCQI[current_rb] 
-                // << " t " << Simulator::Init()->Now() << endl;
-              }
-              else
-              {
-                int current_rb = m_sinrForCQI.size() - 1;
-                ExportSinr((power - noise_interference), GetDevice()->GetIDNetworkNode(), current_rb, Simulator::Init()->Now());
-                double m_predictedSinr;
-                m_predictedSinr = ImportSinr();
-                m_sinrForCQI.push_back (m_predictedSinr);
-              }
+            m_sinrForCQI.push_back (power - noise_interference);
             }          
         }
       else
